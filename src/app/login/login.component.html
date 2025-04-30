@@ -8,7 +8,7 @@
       </div>
       <div class="form-control">
         <input [type]="showPassword ? 'text' : 'password'" placeholder="password" formControlName="password">
-        <svg-icon (click)="showPassword = !showPassword" class="show-password" src="/icons/eye.svg"></svg-icon>
+        <svg-icon (click)="showPassword = !showPassword" class="show-password" [src]="showPassword ? '/icons/eye_opened.svg' : '/icons/eye_closed.svg'"></svg-icon>
       </div>
       <button class="form-submit">Login</button>
     </form>

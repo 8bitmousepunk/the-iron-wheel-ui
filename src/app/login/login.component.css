@@ -17,6 +17,7 @@
 
 .login-header {
   margin: 0;
+  font-size: 36px;
 }
 
 .form-submit {
@@ -33,6 +34,11 @@
   border: 1px solid var(--colorMainTransparent);
   outline: 1px;
   cursor: pointer;
+  transition: background-color 0.1s linear;
+}
+
+.form-submit:active {
+  background-color: var(--inputSubmitBgPressed);
 }
 
 .form-control:first-of-type {

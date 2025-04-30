@@ -34,6 +34,8 @@ export class LoginComponent {
 
   onSubmit(): void {
     const rawForm = this.form.getRawValue();
+    if (!rawForm.email || !rawForm.password) return;
+
     this.authService.login(rawForm.email, rawForm.password).subscribe({
       next: () => {
         this.router.navigateByUrl('/');

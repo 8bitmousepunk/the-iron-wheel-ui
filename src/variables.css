@@ -4,5 +4,6 @@ body {
   --colorBtn: #ffffff;
   --inputControlBg: #9f9a943f;
   --inputSubmitBg: #3C210D80;
+  --inputSubmitBgPressed: #221913;
   --colorMainTransparent: #78665680
 }
