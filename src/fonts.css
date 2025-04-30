@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'KyivTypeSerif-Regular2';
+  src: url('/fonts/KyivTypeSerif-Regular2.otf');
+}
+
+@font-face {
+  font-family: 'KyivTypeSerif-Light3';
+  src: url('/fonts/KyivTypeSerif-Light3.otf');
+}
+
+@font-face {
+  font-family: 'KyivTypeSerif-Medium';
+  src: url('/fonts/KyivTypeSerif-Medium');
+}

@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.login-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.form-wrapper {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-header {
+  margin: 0;
+}
+
+.form-submit {
+  display: inline-block;
+  width: 480px;
+  margin: 0 auto;
+  padding: 2px;
+  background-color: var(--inputSubmitBg);
+  background-clip: content-box;
+  color: var(--colorBtn);
+  text-align: center;
+  font-size: 36px;
+  line-height: 66px;
+  border: 1px solid var(--colorMainTransparent);
+  outline: 1px;
+  cursor: pointer;
+}
+
+.form-control:first-of-type {
+  margin-top: 60px;
+}
+.form-control:last-of-type {
+  margin-bottom: 60px;
+}
+
+.form-control {
+  margin: 20px 0;
+  position: relative;
+}
+
+.form-control input {
+  display: block;
+  width: 480px;
+  padding: 25px 27px;
+
+  background-color: var(--inputControlBg);
+  box-shadow: none;
+  border: none;
+}
+
+.show-password {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+}

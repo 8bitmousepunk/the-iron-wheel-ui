@@ -1,0 +1,16 @@
+<div class="login-wrapper">
+  <div class="form-wrapper">
+    <h2 class="login-header">Welcome to Morgan City</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-control">
+        <input type="email" placeholder="email" formControlName="email">
+      </div>
+      <div class="form-control">
+        <input [type]="showPassword ? 'text' : 'password'" placeholder="password" formControlName="password">
+        <svg-icon (click)="showPassword = !showPassword" class="show-password" src="/icons/eye.svg"></svg-icon>
+      </div>
+      <button class="form-submit">Login</button>
+    </form>
+  </div>
+</div>
