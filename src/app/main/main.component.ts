@@ -1,16 +1,20 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { CharactersService, Character } from '../characters';
 
 @Component({
   selector: 'app-main',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit {
-  private http = inject(HttpClient);
+  private charactersService = inject(CharactersService);
+
+  characters$!: Observable<Character[]>;
 
   ngOnInit(): void {
-    this.http.get('https://api-rwnpemxchq-uc.a.run.app/characters').subscribe(console.log);
+    this.characters$ = this.charactersService.getAll();
   }
 }

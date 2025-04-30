@@ -1,1 +1,22 @@
-<p>main works!</p>
+<div class="main-wrapper">
+  <ul class="characters-list">
+    @for (character of characters$ | async; track character.id) {
+      <li class="character-item">
+        <a href="">
+          <div class="character-image">
+            <img src="/images/{{character.imageUrl}}">
+          </div>
+
+          <div class="character-info">
+            <div class="character-name">
+              {{character.name}}
+            </div>
+            <div class="player-name">
+              {{character.playerName}}
+            </div>
+          </div>
+        </a>
+      </li>
+    }
+  </ul>
+</div>

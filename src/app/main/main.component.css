@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.main-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.characters-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  gap: 64px;
+  align-items: center;
+}
+
+.character-item {
+  width: 262px;
+}
+
+.character-item a {
+  text-decoration: none;
+}
+
+.character-image {
+  border: 2px solid var(--colorMain);
+  transition: background-color 0.1s linear;
+}
+
+.character-image img {
+  width: 100%;
+  transform: translate(-16px, -16px);
+}
+
+.character-image:hover {
+  background: linear-gradient(transparent, var(--colorMain));
+}
+
+.character-info {
+  font-size: 24px;
+}
+
+.character-name {
+  padding: 17px 0;
+  margin: 31px 0 17px;
+  border-top: 1px solid var(--colorMain);
+  border-bottom: 1px solid var(--colorMain);
+  color: var(--colorSec);
+}
+
+.character-info {
+  text-decoration: none;
+  text-align: center;
+}
