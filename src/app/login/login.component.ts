@@ -9,9 +9,11 @@ import { AuthService } from '../auth/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
+import { HeaderComponent } from '../header/header.component';
+
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, ReactiveFormsModule, RouterLink, AngularSvgIconModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterLink, AngularSvgIconModule, HeaderComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })

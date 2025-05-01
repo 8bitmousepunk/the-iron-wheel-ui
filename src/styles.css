@@ -8,6 +8,6 @@ body, html {
 }
 
 body {
-  font-family: 'KyivTypeSerif-Regular2', serif;
+  font-family: var(--fontMain);
   color: var(--colorMain);
 }

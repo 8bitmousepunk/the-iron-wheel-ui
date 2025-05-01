@@ -5,7 +5,13 @@
 
 .login-wrapper {
   display: flex;
+  flex-direction: column;
   height: 100%;
+}
+
+.header-wrapper {
+  width: 100%;
+  border-bottom: 1px solid var(--layoutBorderColor);
 }
 
 .form-wrapper {
@@ -39,6 +45,10 @@
 
 .form-submit:active {
   background-color: var(--inputSubmitBgPressed);
+}
+
+.form-submit:hover {
+  background-color: var(--inputSubmitBgHovered);
 }
 
 .form-control:first-of-type {

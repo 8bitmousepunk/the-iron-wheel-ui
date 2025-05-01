@@ -1,0 +1,63 @@
+<div class="character-sheet-wrapper">
+  @let character = character$ | async;
+  @let isLoading = isLoading$ | async;
+
+  <div class="header">
+    <div class="header-content">
+      <a routerLink="/">
+        <app-header></app-header>
+      </a>
+    </div>
+  </div>
+  <div class="navigation">
+    <ul class="navigation-items">
+      @for (character of characters$ | async; track character.id) {
+        <li class="navigation-item" >
+          <a routerLinkActive="active" [routerLink]="['/', character.id]">{{ character.playerName }}</a>
+        </li>
+      }
+    </ul>
+  </div>
+  <div class="info">
+
+    @if(!isLoading && character) {
+      <div class="info-section">
+        <div class="character-image">
+          <img src="/images/{{character.imageUrl}}">
+        </div>
+        <div class="character-name">
+          {{ character.name }}
+        </div>
+        <div class="character-age">
+          <span>{{ character.age }}</span> y.o.
+        </div>
+
+        <div class="info-table">
+          <table>
+            <tr>
+              <td class="info-table-label">Virtue</td>
+              <td class="info-table-value">{{ character.virtue }}</td>
+            </tr>
+            <tr>
+              <td class="info-table-label">Vice</td>
+              <td class="info-table-value">{{ character.vice }}</td>
+            </tr>
+            <tr>
+              <td class="info-table-label">Concept</td>
+              <td class="info-table-value">{{ character.concept }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="sheet">
+    @if (!isLoading) {
+
+    } @else {
+      <div class="loader">
+        Loading...
+      </div>
+    }
+  </div>
+</div>

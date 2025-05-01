@@ -4,11 +4,17 @@
 }
 
 @font-face {
-  font-family: 'KyivTypeSerif-Light3';
-  src: url('/fonts/KyivTypeSerif-Light3.otf');
+  font-family: 'KyivTypeSerif-Light';
+  src: url('/fonts/KyivTypeSerif-Light.otf');
 }
 
 @font-face {
-  font-family: 'KyivTypeSerif-Medium';
-  src: url('/fonts/KyivTypeSerif-Medium');
+  font-family: 'KyivTypeSerif-Medium3';
+  src: url('/fonts/KyivTypeSerif-Medium3.otf');
+}
+
+body {
+  --fontMain: 'KyivTypeSerif-Regular2', serif;
+  --fontLight: 'KyivTypeSerif-Light', serif;
+  --fontMedium: 'KyivTypeSerif-Medium3', serif;
 }

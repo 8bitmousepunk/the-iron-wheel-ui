@@ -4,37 +4,9 @@
 }
 
 .main-wrapper{
-  display: flex;
-  flex-direction: column;
   height: 100%;
 
   background: url('/bg.webp');
   background-position: center center;
   background-size: cover;
-}
-
-.main-header {
-  padding: 17px 0 20px;
-  font-family: 'KyivTypeSerif-Medium', serif;
-  text-align: center;
-  position: relative;
-}
-
-.main-header:after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border: 1px solid var(--colorSec);
-  opacity: 0.16;
-}
-
-.main-content {
-  flex-grow: 1;
-}
-
-.main-header h1 {
-  margin: 0;
-  font-size: 24px;
 }

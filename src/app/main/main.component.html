@@ -1,8 +1,12 @@
 <div class="main-wrapper">
+  <div class="header-wrapper">
+    <app-header></app-header>
+  </div>
+
   <ul class="characters-list">
     @for (character of characters$ | async; track character.id) {
       <li class="character-item">
-        <a href="">
+        <a [routerLink]="character.id">
           <div class="character-image">
             <img src="/images/{{character.imageUrl}}">
           </div>

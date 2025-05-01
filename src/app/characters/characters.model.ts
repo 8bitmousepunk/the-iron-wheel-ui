@@ -3,6 +3,7 @@ export interface Character {
   name: string;
   playerName: string;
   imageUrl?: string;
+  age: number;
   virtue: string;
   vice: string;
   concept: string;
@@ -23,6 +24,8 @@ export interface Character {
   attributes: Attributes;
   skills: Skills;
 }
+
+export type CharacterCompact = Pick<Character, 'id' | 'name' | 'playerName' | 'imageUrl'>
 
 export enum HealthPoint {
   Healthy = 'healthy',
