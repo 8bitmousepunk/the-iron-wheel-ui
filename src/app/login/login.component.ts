@@ -13,7 +13,7 @@ import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, ReactiveFormsModule, RouterLink, AngularSvgIconModule, HeaderComponent],
+  imports: [FormsModule, ReactiveFormsModule, AngularSvgIconModule, HeaderComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
