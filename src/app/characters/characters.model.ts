@@ -100,3 +100,5 @@ export interface SkillWithSpecification {
 }
 
 export type Skill = SkillWithSpecification | number;
+
+export type CharacterChanges = Partial<Character>

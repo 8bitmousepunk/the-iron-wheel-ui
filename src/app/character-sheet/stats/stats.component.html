@@ -1,0 +1,24 @@
+<div class="stats-wrapper">
+  <div class="health">
+    <div class="label">Health</div>
+    <div class="value">
+      @for (healthPoint of health; track $index) {
+        <svg-icon class="value-icon" [src]="healthPoint | statsHealthIcon" (click)="onHealthIconCLick($index)"></svg-icon>
+      }
+    </div>
+  </div>
+
+  <div class="willpower">
+    <div class="label">Willpower</div>
+    <div class="value">
+      <svg-icon class="value-icon" (click)="onWillpowerIconClick(index)" *ngxRepeat="character.maxWillpower; let index = index" [src]="index < willpower ? '/icons/point_filled.svg' : '/icons/point_crossed.svg'"></svg-icon>
+    </div>
+  </div>
+
+  <div class="integrity">
+    <div class="label">Integrity</div>
+    <div class="value">
+      <svg-icon class="value-icon" (click)="onIntegrityIconClick(index)" *ngxRepeat="character.maxIntegrity; let index = index" [src]="index < integrity ? '/icons/point_filled.svg' : '/icons/point_crossed.svg'"></svg-icon>
+    </div>
+  </div>
+</div>

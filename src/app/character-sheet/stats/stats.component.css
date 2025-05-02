@@ -1,0 +1,31 @@
+.label {
+  text-align: center;
+  font-size: var(--fontSize);
+  color: var(--colorSec);
+}
+
+.value {
+  margin: 10px 0 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.value-icon {
+  width: 20px;
+  height: 20px;
+
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.value-icon:hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.value-icon:active {
+  transform: scale(0.9);
+}
+

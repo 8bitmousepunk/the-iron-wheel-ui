@@ -29,6 +29,14 @@
   grid-area: navigation;
   border-bottom: var(--layoutBorder);
   border-left: var(--layoutBorder);
+  font-size: var(--fontSize);
+}
+
+.navigation-section {
+  width: 1028px;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .info {
@@ -46,10 +54,7 @@
   border-left: var(--layoutBorder);
 }
 
-.navigation {
-  font-size: var(--fontSize);
-}
-
+/* Navigation section */
 .navigation-items {
   padding: 0;
   margin: 0 49px;
@@ -70,6 +75,41 @@
 
 .navigation-item a.active {
   color: var(--colorSec);
+}
+
+.navigation .controls {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navigation .control {
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border-radius: 0;
+  border: 1px solid var(--colorMainTransparent);
+  cursor: pointer;
+  display: flex;
+
+  transition: transform 0.1s ease;
+}
+
+.navigation .control:active {
+  transform: scale(0.9);
+}
+
+.navigation .control-icon {
+  margin: auto;
+}
+
+.navigation .control-save .control-icon {
+  height: 24px;
+}
+
+.navigation .saving-loader {
+  margin-left: auto;
 }
 
 /* Info section */
@@ -115,4 +155,17 @@
 /* character sheet section */
 .loader {
   margin: 20px 30px;
+}
+
+.sheet-wrapper {
+  padding: 71px 50px;
+}
+
+.section-row {
+  display: flex;
+  gap: 25px;
+}
+
+.section-column.stats {
+  width: 217px;
 }

@@ -1,6 +1,5 @@
 <div class="character-sheet-wrapper">
   @let character = character$ | async;
-  @let isLoading = isLoading$ | async;
 
   <div class="header">
     <div class="header-content">
@@ -10,13 +9,30 @@
     </div>
   </div>
   <div class="navigation">
-    <ul class="navigation-items">
-      @for (character of characters$ | async; track character.id) {
-        <li class="navigation-item" >
-          <a routerLinkActive="active" [routerLink]="['/', character.id]">{{ character.playerName }}</a>
-        </li>
+    <div class="navigation-section">
+      <ul class="navigation-items">
+        @for (character of characters$ | async; track character.id) {
+          <li class="navigation-item" >
+            <a routerLinkActive="active" [routerLink]="['/', character.id]">{{ character.playerName }}</a>
+          </li>
+        }
+      </ul>
+
+      @if (!isLoading && isChanged && character && !isSaving) {
+        <div class="controls">
+          <button (click)="onSave(character.id)" class="control control-save">
+            <svg-icon class="control-icon" src="/icons/save.svg"></svg-icon>
+          </button>
+          <button (click)="onRevert()" class="control control-revert">
+            <svg-icon class="control-icon" src="/icons/revert.svg"></svg-icon>
+          </button>
+        </div>
+      } @else if (isSaving) {
+        <div class="saving-loader">
+          Saving...
+        </div>
       }
-    </ul>
+    </div>
   </div>
   <div class="info">
 
@@ -52,8 +68,15 @@
     }
   </div>
   <div class="sheet">
-    @if (!isLoading) {
-
+    @if (!isLoading && character) {
+      <div class="sheet-wrapper">
+        <div class="section-row">
+          <div class="section-column stats">
+            <app-stats [character]="character!" (statsChange)="onStatsChange($event)"></app-stats>
+          </div>
+          <div class="section-column"></div>
+        </div>
+      </div>
     } @else {
       <div class="loader">
         Loading...

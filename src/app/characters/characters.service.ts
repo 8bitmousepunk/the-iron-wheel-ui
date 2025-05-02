@@ -19,4 +19,8 @@ export class CharactersService {
   get(id: string): Observable<Character> {
     return this.apiService.get(`characters/${id}`);
   }
+
+  patch(id: string, changes: Partial<Character>) {
+    return this.apiService.patch(`characters/${id}`, changes);
+  }
 }
