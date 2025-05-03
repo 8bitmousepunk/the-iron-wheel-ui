@@ -69,6 +69,7 @@
 
 .navigation-item a {
   text-decoration: none;
+  color: var(--colorMain);
 }
 
 .navigation-item a:visited {

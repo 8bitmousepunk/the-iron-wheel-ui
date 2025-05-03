@@ -2,7 +2,6 @@ import { Component, Input, Output, EventEmitter, inject, OnInit } from '@angular
 import { cloneDeep } from 'es-toolkit';
 import { SkillLevelComponent, LevelChangeEvent } from '../skill-level/skill-level.component';
 import { Skill } from '../../characters';
-import { CharacterSheetService } from '../character-sheet.service';
 
 export type SkillSetChangeEvent = Record<string, number | Skill>;
 
@@ -16,8 +15,6 @@ export class SkillSetComponent implements OnInit {
   @Input() skillSet!: Record<string, number | Skill>;
   @Input() editable: boolean = false;
   @Output() skillSetChange: EventEmitter<SkillSetChangeEvent> = new EventEmitter();
-
-  private characterSheetService = inject(CharacterSheetService);
 
   skillList: {title: string, key: string, subtype?: string, level: number}[] = [];
 
