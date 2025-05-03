@@ -2,16 +2,18 @@ import { Component, inject, OnInit, DestroyRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Observable, Subject, merge, map, switchMap, tap, delay } from 'rxjs';
+import { Observable, Subject, merge, map, switchMap, tap } from 'rxjs';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { CharactersService, CharacterCompact, Character, CharacterChanges } from '../characters';
 import { CharacterSheetService } from './character-sheet.service';
 import { HeaderComponent } from '../header/header.component';
 import { StatsComponent, StatsChangeEvent } from './stats/stats.component';
+import { MeritsComponent, MeritsChangeEvent } from './merits/merits.component';
+import { StatsAdditionalComponent, StatsAdditionalChangeEvent } from './stats-additional/stats-additional.component';
 
 @Component({
   selector: 'app-character-sheet',
-  imports: [CommonModule, RouterLink, RouterLinkActive, HeaderComponent, StatsComponent, AngularSvgIconModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive, HeaderComponent, StatsComponent, MeritsComponent, AngularSvgIconModule, StatsAdditionalComponent],
   templateUrl: './character-sheet.component.html',
   styleUrl: './character-sheet.component.css'
 })
@@ -38,14 +40,35 @@ export class CharacterSheetComponent implements OnInit {
     this.id$ = this.route.params.pipe(map(({id}) => id));
     this.character$ = merge(this.id$, this.refresh$.pipe(switchMap(() => this.id$))).pipe(
       tap(() => this.isLoading = true),
-      switchMap(id => this.charactersService.get(id).pipe(
-        delay(3 * 1000) // TODO: remove it on the production
-      )),
-      tap(() => this.isLoading = false)
+      switchMap(id => this.charactersService.get(id)),
+      tap(character => {
+        this.characterSheetService.initExperience(character.experience),
+        this.isLoading = false;
+        this.changes = {};
+        this.isChanged = false
+      })
     );
+
+    this.characterSheetService.experience$.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(experience => {
+      this.commonChangeHanlder({ experience });
+    })
   }
 
   onStatsChange(changes: StatsChangeEvent): void {
+    this.commonChangeHanlder(changes);
+  }
+
+  onMeritsChange(changes: MeritsChangeEvent) {
+    this.commonChangeHanlder(changes);
+  }
+
+  onStatsAdditionalChange(changes: StatsAdditionalChangeEvent) {
+    this.commonChangeHanlder(changes);
+  }
+
+  commonChangeHanlder(changes: Partial<Character>) {
     this.changes = {
       ...this.changes,
       ...changes
@@ -54,9 +77,9 @@ export class CharacterSheetComponent implements OnInit {
   }
 
   onRevert(): void {
+    this.characterSheetService.revert$.next();
     this.changes = {};
     this.isChanged = false;
-    this.characterSheetService.revert$.next();
   }
 
   onSave(id: string): void {

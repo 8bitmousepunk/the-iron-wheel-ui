@@ -1,0 +1,27 @@
+<div class="stats-additional-wrapper">
+  <ul class="stats-list">
+    @for (statsItem of statslist; track statsItem.key) {
+      <li class="stats-item">
+        <div class="label">{{ statsItem.label }}</div>
+        <div class="value">{{ character[statsItem.key] ?? '-' }}</div>
+      </li>
+    }
+    <li class="stats-item">
+      <div class="label">Beats</div>
+      <div class="value">
+        <div class="beats">
+          <svg-icon class="beat-icon" (click)="onBeatClick(index)" *ngxRepeat="maxBeats; let index = index" [src]="index < beats ? '/icons/point_filled.svg' : '/icons/point_empty.svg'"></svg-icon>
+        </div>
+      </div>
+      @if (beats === maxBeats) {
+        <button (click)="onRaiseClick()" class="raise">
+          <svg-icon class="raise-icon" src="/icons/raise.svg"></svg-icon>
+        </button>
+      }
+    </li>
+    <li class="stats-item">
+      <div class="label">Experience</div>
+      <div class="value">{{ experience$ | async }}</div>
+    </li>
+  </ul>
+</div>

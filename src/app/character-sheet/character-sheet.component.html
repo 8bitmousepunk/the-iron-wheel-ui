@@ -74,7 +74,12 @@
           <div class="section-column stats">
             <app-stats [character]="character!" (statsChange)="onStatsChange($event)"></app-stats>
           </div>
-          <div class="section-column"></div>
+          <div class="section-column merits">
+            <app-merits [character]="character" (meritsChange)="onMeritsChange($event)"></app-merits>
+          </div>
+          <div class="section-column">
+            <app-stats-additional [character]="character" (statsAdditionalChange)="onStatsAdditionalChange($event)"></app-stats-additional>
+          </div>
         </div>
       </div>
     } @else {

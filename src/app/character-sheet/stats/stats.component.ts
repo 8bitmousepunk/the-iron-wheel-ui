@@ -92,17 +92,17 @@ export class StatsComponent implements OnInit {
 
   onWillpowerIconClick(index: number) {
     if (index === this.willpower - 1) {
-      this.willpower -= 1;
+      this.willpower--;
     } else if (index === this.willpower) {
-      this.willpower += 1;
+      this.willpower++;
     }
   }
 
   onIntegrityIconClick(index: number) {
     if (index === this.integrity - 1) {
-      this.integrity -= 1;
+      this.integrity--;
     } else if (index === this.integrity) {
-      this.integrity += 1;
+      this.integrity++;
     }
   }
 

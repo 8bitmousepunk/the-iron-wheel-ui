@@ -1,0 +1,32 @@
+.skil-level-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: var(--fontSizeSec);
+}
+
+.level {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: auto;
+}
+
+.point {
+  width: 20px;
+  height: 20px;
+
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.point:hover {
+  transform: scale(1.2);
+}
+
+.point:active {
+  transform: scale(0.9);
+}

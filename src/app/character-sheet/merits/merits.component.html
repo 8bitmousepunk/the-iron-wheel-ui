@@ -1,0 +1,10 @@
+<div class="merits-wrapper">
+  <h3 class="merits-header">Merits</h3>
+  <ul class="merits-list">
+    @for (merit of merits; track $index) {
+      <li class="merit-item">
+        <app-skill-level [title]="merit.name" [level]="merit.level" [editable]="true" (change)="onMeritChange($index, $event)"></app-skill-level>
+      </li>
+    }
+  </ul>
+</div>

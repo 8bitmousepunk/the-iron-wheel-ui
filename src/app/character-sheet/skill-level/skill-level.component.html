@@ -1,0 +1,8 @@
+<div class="skil-level-wrapper">
+  <div class="title">{{ title }}</div>
+  <div class="level">
+    <div (click)="onPointClick(index)" class="point" *ngxRepeat="maxLevel; let index = index">
+      <svg-icon [src]="index < level ? '/icons/point_filled.svg' : '/icons/point_empty.svg'"></svg-icon>
+    </div>
+  </div>
+</div>

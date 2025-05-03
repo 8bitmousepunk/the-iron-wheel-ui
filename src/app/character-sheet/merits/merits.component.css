@@ -1,0 +1,12 @@
+.merits-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.merits-header {
+  font-size: var(--fontSize);
+  color: var(--colorSec);
+  text-align: center;
+  margin: 0 0 10px;
+}

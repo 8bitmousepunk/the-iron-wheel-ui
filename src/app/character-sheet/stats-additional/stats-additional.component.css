@@ -1,0 +1,55 @@
+.stats-additional-wrapper {
+  padding: 36px 12px 0;
+}
+
+.stats-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.stats-item {
+  display: flex;
+  gap: 5px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.stats-item .label {
+  flex: 1;
+}
+
+.stats-item .value {
+  flex: 1;
+}
+
+.beats {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.beat-icon {
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  height: 20px;
+}
+
+.beat-icon:hover {
+  transform: scale(1.2);
+}
+
+.beat-icon:active {
+  transform: scale(0.9);
+}
+
+.raise {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-10px, -50%);
+
+  border: 0 none;
+  background: transparent;
+  cursor: pointer;
+}
