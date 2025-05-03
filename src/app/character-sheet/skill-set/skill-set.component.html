@@ -1,0 +1,9 @@
+<div class="skill-set-wrapper">
+  <ul class="skill-set-list">
+    @for (skillItem of skillList; track $index) {
+      <li>
+        <app-skill-level [title]="skillItem.title" [level]="skillItem.level" [editable]="editable" (change)="onLevelChange(skillItem.key, $event)"></app-skill-level>
+      </li>
+    }
+  </ul>
+</div>

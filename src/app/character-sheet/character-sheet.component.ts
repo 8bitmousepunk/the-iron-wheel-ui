@@ -4,16 +4,18 @@ import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Observable, Subject, merge, map, switchMap, tap } from 'rxjs';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { cloneDeep } from 'es-toolkit';
 import { CharactersService, CharacterCompact, Character, CharacterChanges } from '../characters';
 import { CharacterSheetService } from './character-sheet.service';
 import { HeaderComponent } from '../header/header.component';
 import { StatsComponent, StatsChangeEvent } from './stats/stats.component';
 import { MeritsComponent, MeritsChangeEvent } from './merits/merits.component';
 import { StatsAdditionalComponent, StatsAdditionalChangeEvent } from './stats-additional/stats-additional.component';
+import { SkillSetComponent, SkillSetChangeEvent } from './skill-set/skill-set.component';
 
 @Component({
   selector: 'app-character-sheet',
-  imports: [CommonModule, RouterLink, RouterLinkActive, HeaderComponent, StatsComponent, MeritsComponent, AngularSvgIconModule, StatsAdditionalComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, HeaderComponent, StatsComponent, MeritsComponent, AngularSvgIconModule, StatsAdditionalComponent, SkillSetComponent],
   templateUrl: './character-sheet.component.html',
   styleUrl: './character-sheet.component.css'
 })
@@ -66,6 +68,12 @@ export class CharacterSheetComponent implements OnInit {
 
   onStatsAdditionalChange(changes: StatsAdditionalChangeEvent) {
     this.commonChangeHanlder(changes);
+  }
+
+  onSkillSetChange(type: string, changes: SkillSetChangeEvent) {
+    this.commonChangeHanlder({
+      [`skills.${type}`]: changes
+    })
   }
 
   commonChangeHanlder(changes: Partial<Character>) {

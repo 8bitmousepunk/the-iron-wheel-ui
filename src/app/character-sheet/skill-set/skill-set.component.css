@@ -1,0 +1,10 @@
+.skill-set-wrapper {
+  padding: 12px;
+  border: 1px solid var(--colorMain);
+}
+
+.skill-set-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}

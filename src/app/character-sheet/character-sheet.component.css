@@ -52,6 +52,8 @@
   grid-area: sheet;
   border-top: var(--layoutBorder);
   border-left: var(--layoutBorder);
+
+  overflow: auto;
 }
 
 /* Navigation section */
@@ -158,7 +160,7 @@
 }
 
 .sheet-wrapper {
-  padding: 71px 50px;
+  padding: 20px 50px;
 }
 
 .section-row {
@@ -168,4 +170,15 @@
 
 .section-column {
   width: 284px;
+}
+.section {
+  width: 892px;
+  margin: 22px 0;
+}
+
+.section-header {
+  margin: 0 0 10px;
+  font-size: var(--fontSize);
+  color: var(--colorSec);
+  text-align: center;
 }
