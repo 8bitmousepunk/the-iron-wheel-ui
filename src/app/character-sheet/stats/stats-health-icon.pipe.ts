@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { HealthPoint } from '../../characters';
+import { Icon } from '../../icons';
 
 const HealthPointIconMap = {
-  [HealthPoint.Healthy]: '/icons/point_filled.svg',
-  [HealthPoint.Bashing]: '/icons/point_crossed.svg',
-  [HealthPoint.Lethal]: '/icons/lethal.svg',
-  [HealthPoint.Agravated]: '/icons/agravated.svg'
+  [HealthPoint.Healthy]: Icon.PointFilled,
+  [HealthPoint.Bashing]: Icon.PointCrossed,
+  [HealthPoint.Lethal]: Icon.Lethal,
+  [HealthPoint.Agravated]: Icon.Agravated
 }
 
 @Pipe({
@@ -13,7 +14,7 @@ const HealthPointIconMap = {
 })
 export class StatsHealthIconPipe implements PipeTransform {
 
-  transform(value: HealthPoint): string {
+  transform(value: HealthPoint): Icon {
     return HealthPointIconMap[value];
   }
 

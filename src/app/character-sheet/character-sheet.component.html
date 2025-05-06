@@ -21,10 +21,10 @@
       @if (!isLoading && isChanged && character && !isSaving) {
         <div class="controls">
           <button (click)="onSave(character.id)" class="control control-save">
-            <svg-icon class="control-icon" src="/icons/save.svg"></svg-icon>
+            <app-icon class="control-icon" [name]="icons.Save"></app-icon>
           </button>
           <button (click)="onRevert()" class="control control-revert">
-            <svg-icon class="control-icon" src="/icons/revert.svg"></svg-icon>
+            <app-icon class="control-icon" [name]="icons.Revert"></app-icon>
           </button>
         </div>
       } @else if (isSaving) {

@@ -1,16 +1,17 @@
 import { Component, Input, Output, OnInit, EventEmitter, inject, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgxRepeatDirective } from 'ngx-repeat';
 import { Character, HealthPoints, HealthPoint } from '../../characters';
 import { StatsHealthIconPipe } from './stats-health-icon.pipe';
 import { CharacterSheetService } from '../character-sheet.service';
+import { IconComponent } from '../../icon/icon.component';
+import { IconsToken } from '../../icons';
 
 export type StatsChangeEvent = Partial<Pick<Character, 'health' | 'integrity' | 'willpower'>>;
 
 @Component({
   selector: 'app-stats',
-  imports: [AngularSvgIconModule, NgxRepeatDirective, StatsHealthIconPipe],
+  imports: [IconComponent, NgxRepeatDirective, StatsHealthIconPipe],
   templateUrl: './stats.component.html',
   styleUrl: './stats.component.css'
 })
@@ -20,6 +21,7 @@ export class StatsComponent implements OnInit {
 
   private characterSheetService = inject(CharacterSheetService);
   private destroyRef = inject(DestroyRef);
+  icons = inject(IconsToken);
 
   private _changes: StatsChangeEvent = {};
 

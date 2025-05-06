@@ -10,12 +10,12 @@
       <div class="label">Beats</div>
       <div class="value">
         <div class="beats">
-          <svg-icon class="beat-icon" (click)="onBeatClick(index)" *ngxRepeat="maxBeats; let index = index" [src]="index < beats ? '/icons/point_filled.svg' : '/icons/point_empty.svg'"></svg-icon>
+          <app-icon class="beat-icon" (click)="onBeatClick(index)" *ngxRepeat="maxBeats; let index = index" [name]="index < beats ? icons.PointFilled : icons.PointEmpty"></app-icon>
         </div>
       </div>
       @if (beats === maxBeats) {
         <button (click)="onRaiseClick()" class="raise">
-          <svg-icon class="raise-icon" src="/icons/raise.svg"></svg-icon>
+          <app-icon class="raise-icon" [name]="icons.Raise"></app-icon>
         </button>
       }
     </li>

@@ -6,18 +6,20 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
-import { Router, RouterLink } from '@angular/router';
-import { AngularSvgIconModule } from 'angular-svg-icon';
-
+import { Router } from '@angular/router';
+import { IconComponent } from '../icon/icon.component';
+import { IconsToken } from '../icons';
 import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, ReactiveFormsModule, AngularSvgIconModule, HeaderComponent],
+  imports: [FormsModule, ReactiveFormsModule, IconComponent, HeaderComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  icons = inject(IconsToken);
+
   error: boolean = false;
   fb: FormBuilder = inject(FormBuilder);
   authService: AuthService = inject(AuthService);

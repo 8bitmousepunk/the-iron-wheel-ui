@@ -8,3 +8,7 @@
   margin: 0;
   list-style-type: none;
 }
+
+.skill-set-item:not(:last-child) {
+  margin-bottom: 3px;
+}

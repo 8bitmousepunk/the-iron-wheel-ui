@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Observable, Subject, merge, map, switchMap, tap } from 'rxjs';
-import { AngularSvgIconModule } from 'angular-svg-icon';
-import { cloneDeep } from 'es-toolkit';
 import { CharactersService, CharacterCompact, Character, CharacterChanges } from '../characters';
 import { CharacterSheetService } from './character-sheet.service';
 import { HeaderComponent } from '../header/header.component';
@@ -12,10 +10,12 @@ import { StatsComponent, StatsChangeEvent } from './stats/stats.component';
 import { MeritsComponent, MeritsChangeEvent } from './merits/merits.component';
 import { StatsAdditionalComponent, StatsAdditionalChangeEvent } from './stats-additional/stats-additional.component';
 import { SkillSetComponent, SkillSetChangeEvent } from './skill-set/skill-set.component';
+import { IconComponent } from '../icon/icon.component';
+import { IconsToken } from '../icons';
 
 @Component({
   selector: 'app-character-sheet',
-  imports: [CommonModule, RouterLink, RouterLinkActive, HeaderComponent, StatsComponent, MeritsComponent, AngularSvgIconModule, StatsAdditionalComponent, SkillSetComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, HeaderComponent, StatsComponent, MeritsComponent, StatsAdditionalComponent, SkillSetComponent, IconComponent],
   templateUrl: './character-sheet.component.html',
   styleUrl: './character-sheet.component.css'
 })
@@ -24,6 +24,7 @@ export class CharacterSheetComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private characterSheetService = inject(CharacterSheetService);
   private destroyRef = inject(DestroyRef);
+  icons = inject(IconsToken);
 
   characters$!: Observable<CharacterCompact[]>;
   id$!: Observable<string>;

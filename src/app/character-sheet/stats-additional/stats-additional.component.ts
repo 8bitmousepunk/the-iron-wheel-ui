@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter, OnInit, inject, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgxRepeatDirective } from 'ngx-repeat';
 import { Character } from '../../characters';
 import { CharacterSheetService } from '../../character-sheet/character-sheet.service';
+import { IconComponent } from '../../icon/icon.component';
+import { IconsToken } from '../../icons'
 
 export type StatsAdditionalChangeEvent = Partial<Pick<Character, 'beats'>>
 
@@ -18,7 +19,7 @@ export const AdditionalStatsList: Array<{ key: keyof Pick<Character, 'size' | 's
 
 @Component({
   selector: 'app-stats-additional',
-  imports: [CommonModule, AngularSvgIconModule, NgxRepeatDirective],
+  imports: [CommonModule, IconComponent, NgxRepeatDirective],
   templateUrl: './stats-additional.component.html',
   styleUrl: './stats-additional.component.css'
 })
@@ -28,6 +29,7 @@ export class StatsAdditionalComponent implements OnInit {
 
   private characterSheetService = inject(CharacterSheetService);
   private destroyRef = inject(DestroyRef);
+  icons = inject(IconsToken);
 
   statslist = AdditionalStatsList;
   beats!: number;

@@ -1,14 +1,15 @@
 import { Component, Input, Output, EventEmitter, OnInit, inject, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgxRepeatDirective } from 'ngx-repeat';
 import { CharacterSheetService } from '../character-sheet.service';
+import { IconComponent } from '../../icon/icon.component';
+import { IconsToken } from '../../icons';
 
 export interface LevelChangeEvent { level: number };
 
 @Component({
   selector: 'app-skill-level',
-  imports: [AngularSvgIconModule, NgxRepeatDirective],
+  imports: [NgxRepeatDirective, IconComponent],
   templateUrl: './skill-level.component.html',
   styleUrl: './skill-level.component.css'
 })
@@ -22,6 +23,7 @@ export class SkillLevelComponent implements OnInit {
 
   private characterSheetService = inject(CharacterSheetService);
   private destroyRef = inject(DestroyRef);
+  icons = inject(IconsToken);
 
   private initialLevel!: number;
 

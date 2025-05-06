@@ -14,12 +14,18 @@ export type SkillSetChangeEvent = Record<string, number | Skill>;
 export class SkillSetComponent implements OnInit {
   @Input() skillSet!: Record<string, number | Skill>;
   @Input() editable: boolean = false;
+  @Input() sort?: boolean = false;
   @Output() skillSetChange: EventEmitter<SkillSetChangeEvent> = new EventEmitter();
 
   skillList: {title: string, key: string, subtype?: string, level: number}[] = [];
 
   ngOnInit(): void {
-    this.skillList = Object.keys(this.skillSet).sort().map(key => {
+    const keys = Object.keys(this.skillSet);
+    if (this.sort) {
+      keys.sort();
+    }
+
+    this.skillList = keys.map(key => {
       const skillVal = this.skillSet[key];
       const result: {title: string, key: string, subtype?: string, level: number} = {
         title: key,

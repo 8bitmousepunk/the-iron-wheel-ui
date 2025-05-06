@@ -43,7 +43,7 @@
   grid-area: info;
   border-top: var(--layoutBorder);
   border-right: var(--layoutBorder);
-  padding: 49px 58px;
+  padding: 41px 58px;
   display: flex;
   justify-content: flex-end;
 }
@@ -117,11 +117,11 @@
 
 /* Info section */
 .info-section {
-  width: 240px;
+  width: 300px;
 }
 
 .character-image {
-  border: 2px solid var(--colorMain);
+  border: 1px solid var(--colorMain);
 }
 
 .character-image img {
@@ -131,8 +131,8 @@
 
 .character-name {
   margin: 15px 0 13px;
-  font-size: 35px;
-  line-height: 35px;
+  font-size: 48px;
+  line-height: 1;
   color: var(--colorSec);
   font-family: var(--fontLight);
 }
@@ -145,6 +145,7 @@
 
 .info-table {
   font-size: var(--fontSizeSec);
+  line-height: 1.5;
 }
 
 .info-table-label {
@@ -161,7 +162,7 @@
 }
 
 .sheet-wrapper {
-  padding: 20px 50px;
+  padding: 26px 50px 0;
 }
 
 .section-row {
@@ -170,10 +171,9 @@
 }
 
 .section-column {
-  width: 284px;
+  width: 304px;
 }
 .section {
-  width: 892px;
   margin: 22px 0;
 }
 
