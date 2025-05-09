@@ -43,12 +43,12 @@
   transition: background-color 0.1s linear;
 }
 
-.form-submit:active {
-  background-color: var(--inputSubmitBgPressed);
-}
-
 .form-submit:hover {
   background-color: var(--inputSubmitBgHovered);
+}
+
+.form-submit:active {
+  background-color: var(--inputSubmitBgPressed);
 }
 
 .form-control:first-of-type {
@@ -68,6 +68,7 @@
   width: 480px;
   padding: 25px 27px;
 
+  color: var(--colorSec);
   background-color: var(--inputControlBg);
   box-shadow: none;
   border: none;

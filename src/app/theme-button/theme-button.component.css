@@ -1,0 +1,19 @@
+
+.button {
+  width: 120px;
+  height: 48px;
+
+  cursor: pointer;
+  border: 0 none;
+  background: linear-gradient(90deg, var(--colorMain), transparent);
+  transition: transform 0.1s ease;
+  transform-origin: center center;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.button:active {
+  transform: scale(0.9);
+}

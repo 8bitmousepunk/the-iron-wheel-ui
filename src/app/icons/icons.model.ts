@@ -1,3 +1,5 @@
+import { Theme } from '../theme/theme.service';
+
 export enum Icon {
   AgravatedDark = "agravated_dark",
   Agravated = "agravated",
@@ -17,7 +19,9 @@ export enum Icon {
   Raise = "raise",
   Ranged = "ranged",
   Revert = "revert",
-  Save = "save"
+  Save = "save",
+  Light = 'light',
+  Dark = 'dark'
 }
 
 export const IconPathes: {[key in Icon]: string} = {
@@ -40,4 +44,14 @@ export const IconPathes: {[key in Icon]: string} = {
   ranged: '/icons/ranged.svg',
   revert: '/icons/revert.svg',
   save: '/icons/save.svg',
+  light: '/icons/light.svg',
+  dark: '/icons/dark.svg'
+}
+
+export const IconThemeMap: Partial<{[key in Icon]: {[Theme.Light]: Icon, [Theme.Dark]: Icon}}> = {
+  agravated: { light: Icon.Agravated, dark: Icon.AgravatedDark },
+  lethal: { light: Icon.Lethal, dark: Icon.Lethal_dark },
+  point_crossed: { light: Icon.PointCrossed, dark: Icon.PointCrossedDark },
+  point_filled: { light: Icon.PointFilled, dark: Icon.PointFilledDark },
+  light: { light: Icon.Light, dark: Icon.Dark }
 }

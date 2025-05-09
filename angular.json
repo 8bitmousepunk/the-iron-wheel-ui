@@ -30,6 +30,7 @@
               "src/reset.css",
               "src/variables.css",
               "src/fonts.css",
+              "src/dark-theme.css",
               "src/styles.css"
             ],
             "scripts": []

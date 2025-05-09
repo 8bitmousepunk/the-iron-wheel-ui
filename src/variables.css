@@ -8,6 +8,7 @@ body {
   --inputSubmitBgPressed: #221913;
   --inputSubmitBgHovered: #C0B3AA;
   --colorMainTransparent: #78665680;
+  --mainBgColor: #ffffffd4;
 
   --headerHeight: 66px;
 
@@ -15,4 +16,6 @@ body {
   --fontSizeSec: 18px;
   --buttonFontSize: 36px;
   --captionFontSize: 14px;
+
+  --mainBg: url('/back.webp');
 }

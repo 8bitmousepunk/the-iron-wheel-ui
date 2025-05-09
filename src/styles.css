@@ -10,4 +10,8 @@ body, html {
 body {
   font-family: var(--fontMain);
   color: var(--colorMain);
+
+  background: var(--mainBg);
+  background-position: center center;
+  background-size: cover;
 }

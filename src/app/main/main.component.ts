@@ -4,10 +4,11 @@ import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CharactersService, CharacterCompact } from '../characters';
 import { HeaderComponent } from '../header/header.component';
+import { ThemeButtonComponent } from "../theme-button/theme-button.component";
 
 @Component({
   selector: 'app-main',
-  imports: [CommonModule, HeaderComponent, RouterLink],
+  imports: [CommonModule, HeaderComponent, RouterLink, ThemeButtonComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })

@@ -1,0 +1,12 @@
+body.dark-theme {
+  --colorMain: #786656;
+  --colorMainTransparent: #78665680;
+  --colorSec: #FFD489;
+  --mainBgColor: #1E1D20E8;
+  --colorBtn: #ffffff;
+  --layoutBorderColor: #FFD48929;
+  --inputControlBg: #9f9a943f;
+  --inputSubmitBg: #786656BF;
+  --inputSubmitBgPressed: #FFD48988;
+  --inputSubmitBgHovered: #FFD489;
+}
