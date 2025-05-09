@@ -5,13 +5,18 @@
   <div class="form-wrapper">
     <h2 class="login-header">Welcome to Morgan City</h2>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form" [class.error]="error">
       <div class="form-control">
         <input type="email" placeholder="email" formControlName="email">
       </div>
       <div class="form-control">
         <input [type]="showPassword ? 'text' : 'password'" placeholder="password" formControlName="password">
         <app-icon (click)="showPassword = !showPassword" class="show-password" [name]="showPassword ? icons.EyeOpened : icons.EyeClosed"></app-icon>
+      </div>
+      <div class="error-container">
+        @if (error) {
+          <div class="error-message">Incorrect email or password</div>
+        }
       </div>
       <button class="form-submit">Login</button>
     </form>
