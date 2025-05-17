@@ -90,13 +90,17 @@
 .navigation .control {
   width: 48px;
   height: 48px;
-  background: transparent;
+  background: var(--headerButtonsBg);
   border-radius: 0;
   border: 1px solid var(--colorMainTransparent);
   cursor: pointer;
   display: flex;
 
   transition: transform 0.1s ease;
+}
+
+.navigation .control:hover {
+  transform: scale(1.05);
 }
 
 .navigation .control:active {

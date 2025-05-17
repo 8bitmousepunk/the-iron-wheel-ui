@@ -18,20 +18,21 @@
         }
       </ul>
 
-      @if (!isLoading && isChanged && character && !isSaving) {
-        <div class="controls">
+      <div class="controls">
+        @if (!isLoading && isChanged && character && !isSaving) {
           <button (click)="onSave(character.id)" class="control control-save">
             <app-icon class="control-icon" [name]="icons.Save"></app-icon>
           </button>
           <button (click)="onRevert()" class="control control-revert">
             <app-icon class="control-icon" [name]="icons.Revert"></app-icon>
           </button>
-        </div>
-      } @else if (isSaving) {
-        <div class="saving-loader">
-          Saving...
-        </div>
-      }
+        } @else if (isSaving) {
+          <div class="saving-loader">
+            Saving...
+          </div>
+        }
+        <app-theme-button class="theme-button"></app-theme-button>
+      </div>
     </div>
   </div>
   <div class="info">

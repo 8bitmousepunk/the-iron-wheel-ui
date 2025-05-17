@@ -5,13 +5,20 @@
 
   cursor: pointer;
   border: 0 none;
-  background: linear-gradient(90deg, var(--colorMain), transparent);
+  background: var(--headerButtonsBg);
+  border: 1px solid var(--colorMainTransparent);
+
   transition: transform 0.1s ease;
-  transform-origin: center center;
+
+  display: flex;
+}
+
+.icon {
+  margin: auto;
 }
 
 .button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .button:active {

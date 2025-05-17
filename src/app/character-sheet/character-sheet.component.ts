@@ -12,10 +12,11 @@ import { StatsAdditionalComponent, StatsAdditionalChangeEvent } from './stats-ad
 import { SkillSetComponent, SkillSetChangeEvent } from './skill-set/skill-set.component';
 import { IconComponent } from '../icon/icon.component';
 import { IconsToken } from '../icons';
+import { ThemeButtonComponent } from '../theme-button/theme-button.component';
 
 @Component({
   selector: 'app-character-sheet',
-  imports: [CommonModule, RouterLink, RouterLinkActive, HeaderComponent, StatsComponent, MeritsComponent, StatsAdditionalComponent, SkillSetComponent, IconComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, HeaderComponent, StatsComponent, MeritsComponent, StatsAdditionalComponent, SkillSetComponent, IconComponent, ThemeButtonComponent],
   templateUrl: './character-sheet.component.html',
   styleUrl: './character-sheet.component.css'
 })
