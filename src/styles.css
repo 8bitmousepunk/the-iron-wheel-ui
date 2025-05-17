@@ -15,3 +15,21 @@ body {
   background-position: center center;
   background-size: cover;
 }
+
+.app-wrapper {
+  height: 100%;
+
+  background-color: var(--mainBgColor);
+  transition: background-color 0.1s ease;
+}
+
+/* Pulse effect on hover and active states */
+.effect-pulse {
+  transition: transform 0.1s ease;
+}
+.effect-pulse:hover {
+  transform: scale(1.2);
+}
+.effect-pulse:active {
+  transform: scale(0.9);
+}

@@ -27,12 +27,12 @@ export class CharacterSheetService {
     });
   }
 
-  decreaseExperience() {
-    if (this.experience === 0) return;
-    this.experience--;
+  decreaseExperience(value: number = 1) {
+    if (this.experience < value) return;
+    this.experience-= value;
   }
 
-  increaseExperience() {
-    this.experience++;
+  increaseExperience(value: number = 1) {
+    this.experience+= value;
   }
 }

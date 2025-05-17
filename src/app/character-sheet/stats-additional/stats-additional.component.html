@@ -3,9 +3,30 @@
     @for (statsItem of statslist; track statsItem.key) {
       <li class="stats-item">
         <div class="label">{{ statsItem.label }}</div>
-        <div class="value">{{ character[statsItem.key] ?? '-' }}</div>
+        <div class="value">{{ character[statsItem.key] }}</div>
       </li>
     }
+    <li class="stats-item">
+      <div class="label">Armor</div>
+      <div class="value value-armor">
+        <span class="armor">
+          <app-icon class="armor-icon" [name]="icons.Melee"></app-icon>
+          <span class="armor-value">{{ armor.melee }}</span>
+          <span class="armor-controls">
+            <app-icon class="armor-control effect-pulse armor-increase" (click)="updateArmor('melee', +1)" [name]="icons.Increase"></app-icon>
+            <app-icon class="armor-control effect-pulse armor-decrease" (click)="updateArmor('melee', -1)" [name]="icons.Decrease"></app-icon>
+          </span>
+        </span>
+        <span class="armor">
+          <app-icon class="armor-icon" [name]="icons.Ranged"></app-icon>
+          <span class="armor-value">{{ armor.ranged }}</span>
+          <span class="armor-controls">
+            <app-icon class="armor-control effect-pulse armor-increase" (click)="updateArmor('ranged', +1)" [name]="icons.Increase"></app-icon>
+            <app-icon class="armor-control effect-pulse armor-decrease" (click)="updateArmor('ranged', -1)" [name]="icons.Decrease"></app-icon>
+          </span>
+        </span>
+      </div>
+    </li>
     <li class="stats-item">
       <div class="label">Beats</div>
       <div class="value">

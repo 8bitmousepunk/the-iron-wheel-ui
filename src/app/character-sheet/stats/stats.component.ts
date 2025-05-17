@@ -23,6 +23,8 @@ export class StatsComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
   icons = inject(IconsToken);
 
+  private readonly integrityCost: number = 2;
+
   private _changes: StatsChangeEvent = {};
 
   get health(): HealthPoints {
@@ -102,10 +104,24 @@ export class StatsComponent implements OnInit {
 
   onIntegrityIconClick(index: number) {
     if (index === this.integrity - 1) {
-      this.integrity--;
+      this.decreaseIntegrity();
     } else if (index === this.integrity) {
+      this.increaseIntegrity();
+    }
+  }
+
+  decreaseIntegrity(): void {
+    this.integrity--;
+  }
+
+  increaseIntegrity(): void {
+    if (this.integrityCost > this.characterSheetService.experience) {
+      return
+    } else {
+      this.characterSheetService.decreaseExperience(this.integrityCost);
       this.integrity++;
     }
+    return;
   }
 
   emitChanges(changes: StatsChangeEvent) {

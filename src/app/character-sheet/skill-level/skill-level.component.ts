@@ -18,6 +18,7 @@ export class SkillLevelComponent implements OnInit {
   @Input() level!: number;
   @Input() maxLevel: number = 5;
   @Input() editable: boolean = false;
+  @Input() increaseCost: number = 1;
 
   @Output() change: EventEmitter<LevelChangeEvent> = new EventEmitter();
 
@@ -38,18 +39,18 @@ export class SkillLevelComponent implements OnInit {
   }
 
   onPointClick(index: number) {
-    if (!this.editable || index < this.initialLevel) return;
+    if (!this.editable || index < this.initialLevel || this.characterSheetService.experience < this.increaseCost) return;
 
-    if (index === this.level && this.characterSheetService.experience) {
+    if (index === this.level) {
       this.level++;
-      this.characterSheetService.decreaseExperience();
+      this.characterSheetService.decreaseExperience(this.increaseCost);
       this.emitChangeEvent();
       return;
     }
 
     if (index === this.level - 1) {
       this.level--;
-      this.characterSheetService.increaseExperience();
+      this.characterSheetService.increaseExperience(this.increaseCost);
       this.emitChangeEvent();
       return;
     }

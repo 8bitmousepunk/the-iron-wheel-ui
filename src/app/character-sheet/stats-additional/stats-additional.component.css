@@ -53,3 +53,38 @@
   background: transparent;
   cursor: pointer;
 }
+
+.value {
+  font-size: var(--fontSizeSec);
+  color: var(--colorSec);
+}
+
+.value-armor {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.armor {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.armor-icon {
+  height: 22px;
+}
+
+.armor-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5px;
+}
+
+.armor-control {
+  cursor: pointer;
+}
+
+.armor-value {
+  font-family: monospace;
+}

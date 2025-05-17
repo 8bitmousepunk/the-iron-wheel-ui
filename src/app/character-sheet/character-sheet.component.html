@@ -87,13 +87,13 @@
           <h3 class="section-header">Attributes</h3>
           <div class="section-row">
             <div class="section-column">
-              <app-skill-set [skillSet]="character.attributes.mental" [editable]="false"></app-skill-set>
+              <app-skill-set [skillSet]="character.attributes.mental" [editable]="true" [increaseCost]="attributesIncreaseCost"></app-skill-set>
             </div>
             <div class="section-column">
-              <app-skill-set [skillSet]="character.attributes.physical" [editable]="false"></app-skill-set>
+              <app-skill-set [skillSet]="character.attributes.physical" [editable]="false" [increaseCost]="attributesIncreaseCost"></app-skill-set>
             </div>
             <div class="section-column">
-              <app-skill-set [skillSet]="character.attributes.social" [editable]="false"></app-skill-set>
+              <app-skill-set [skillSet]="character.attributes.social" [editable]="false" [increaseCost]="attributesIncreaseCost"></app-skill-set>
             </div>
           </div>
         </section>
@@ -102,13 +102,13 @@
           <h3 class="section-header">Skills</h3>
           <div class="section-row">
             <div class="section-column">
-              <app-skill-set [skillSet]="character.skills.mental" [editable]="true" (skillSetChange)="onSkillSetChange('mental', $event)"></app-skill-set>
+              <app-skill-set [skillSet]="character.skills.mental" [editable]="true" [increaseCost]="skillIncreaseCost" (skillSetChange)="onSkillSetChange('mental', $event)"></app-skill-set>
             </div>
             <div class="section-column">
-              <app-skill-set [skillSet]="character.skills.physical" [editable]="true" (skillSetChange)="onSkillSetChange('physical', $event)"></app-skill-set>
+              <app-skill-set [skillSet]="character.skills.physical" [editable]="true" [increaseCost]="skillIncreaseCost" (skillSetChange)="onSkillSetChange('physical', $event)"></app-skill-set>
             </div>
             <div class="section-column">
-              <app-skill-set [skillSet]="character.skills.social" [editable]="true" (skillSetChange)="onSkillSetChange('social', $event)"></app-skill-set>
+              <app-skill-set [skillSet]="character.skills.social" [editable]="true" [increaseCost]="skillIncreaseCost" (skillSetChange)="onSkillSetChange('social', $event)"></app-skill-set>
             </div>
           </div>
         </section>

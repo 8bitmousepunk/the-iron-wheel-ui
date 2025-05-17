@@ -14,6 +14,7 @@ export type SkillSetChangeEvent = Record<string, number | Skill>;
 export class SkillSetComponent implements OnInit {
   @Input() skillSet!: Record<string, number | Skill>;
   @Input() editable: boolean = false;
+  @Input() increaseCost: number = 1;
   @Input() sort?: boolean = false;
   @Output() skillSetChange: EventEmitter<SkillSetChangeEvent> = new EventEmitter();
 

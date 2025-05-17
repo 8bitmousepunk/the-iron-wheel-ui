@@ -26,6 +26,9 @@ export class CharacterSheetComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
   icons = inject(IconsToken);
 
+  readonly attributesIncreaseCost: number = 4;
+  readonly skillIncreaseCost: number = 2;
+
   characters$!: Observable<CharacterCompact[]>;
   id$!: Observable<string>;
   character$!: Observable<Character>;
